@@ -6,12 +6,12 @@
                 <div class="nav">
                     <div class="sb-sidenav-menu-heading">Core</div>
                     <router-link class="nav-link" to="/admin/dashboard">
-                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        <div class="sb-nav-link-icon"><i class="fa-solid fa-gauge"></i></div>
                         Dashboard
                     </router-link>
                     <div class="sb-sidenav-menu-heading">Ecommerce</div>
                     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                        <div class="sb-nav-link-icon"><i class="fa-brands fa-product-hunt"></i></i></div>
+                        <div class="sb-nav-link-icon"> <i class="fas fa-box"></i></div>
                         <span>Product</span>
                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                     </a>
@@ -23,7 +23,7 @@
                         </nav>
                     </div>
                     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts2" aria-expanded="false" aria-controls="collapseLayouts2">
-                        <div class="sb-nav-link-icon"><i class="fa-solid fa-person-military-pointing"></i></div>
+                        <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                         <span>Customer</span>
                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                     </a>

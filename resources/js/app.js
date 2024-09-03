@@ -14,6 +14,11 @@ import commonMixin from "./mixins/commonMixin";
 Vue.mixin(httpMixin);
 Vue.mixin(commonMixin);
 
+import Toast from 'vue-toastification';
+import 'vue-toastification/dist/index.css';
+Vue.use(Toast);
+
+
 const router = new VueRouter({
     mode : 'history',
     routes : route,

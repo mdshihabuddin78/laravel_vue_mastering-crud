@@ -14,7 +14,8 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button @click="submitForm" class="btn btn-primary">Save changes</button>
+<!--                        <button @click="submitForm" class="btn btn-primary">Save changes</button>-->
+                        <button type="submit" class="btn btn-primary">{{ isEditMode ? 'Update' : 'Save' }}</button>
                     </div>
 
                 </div>

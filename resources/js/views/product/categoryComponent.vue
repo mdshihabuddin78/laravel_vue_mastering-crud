@@ -9,6 +9,11 @@
                     <a @click="openEditModal(data)" class="btn btn-outline-warning">
                         <i class="fas fa-edit"></i>
                     </a>
+
+<!--                    <a href="#!" class="btn btn-soft-primary btn-sm">-->
+<!--                        <iconify-icon icon="solar:pen-2-broken" class="align-middle fs-18"></iconify-icon>-->
+<!--                    </a>-->
+
                     <a @click="Categorydelete(data.id)" class="btn btn-outline-danger">
                         <i class="fas fa-trash"></i>
                     </a>
@@ -46,7 +51,7 @@
 </script>
 
 <style scoped>
-    .datatable-top {
+    .datatable-top{
         padding: 0 !important;
     }
 </style>

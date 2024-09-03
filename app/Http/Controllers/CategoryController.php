@@ -23,15 +23,15 @@ class CategoryController extends Controller
 
     public function store(Request $request)
     {
-        try {
-            $category = new Category();
-            $category->name = $request->input('name');
-            $category->save();
-
-            return response()->json(['status' => 2000]);
-        } catch (\Exception $e) {
-            return response()->json(['result' => null, 'message' => $e->getMessage(), 'status' => 5000]);
-        }
+//        try {
+//            $category = new Category();
+//            $category->name = $request->input('name');
+//            $category->save();
+//
+//            return response()->json(['status' => 2000]);
+//        } catch (\Exception $e) {
+//            return response()->json(['result' => null, 'message' => $e->getMessage(), 'status' => 5000]);
+//        }
     }
 
 
@@ -55,41 +55,23 @@ class CategoryController extends Controller
     public function update(Request $request)
     {
 
-        try {
-            $id = $request->input('id');
-
-            $category =Category::where('id', $id)->first();
-
-            if ($category) {
-                $category->name = $request->input('name');
-                $category->update();
-
-                return response()->json(['status' => 2000]);
-            }
-
-            return response()->json(['status' => 3000]);
-        } catch (\Exception $e) {
-            return response()->json(['result' => null, 'message' => $e->getMessage(), 'status' => 5000]);
-        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy($id)
+
+    public function destroy()
     {
-        $category = Category::find($id);
-
-        if (!$category) {
-            return response()->json([
-                'message' => 'Category not found!'
-            ], 404);
-        }
-
-        $category->delete();
-
-        return response()->json([
-            'message' => 'Category deleted successfully!'
-        ]);
+//        $category = Category::find($id);
+//
+//        if (!$category) {
+//            return response()->json([
+//                'message' => 'Category not found!'
+//            ], 404);
+//        }
+//
+//        $category->delete();
+//
+//        return response()->json([
+//            'message' => 'Category deleted successfully!'
+//        ]);
     }
 }

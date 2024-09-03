@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>LaravelVue2</title>
+    <title>LaravelVue</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link href="{{asset('assets/css/styles.css')}}" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+
+
 </head>
 <body class="sb-nav-fixed">
 <div id="app">
@@ -25,6 +27,9 @@
 <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
 <script src="{{asset('assets/js/datatables-simple-demo.js')}}"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script src="https://code.iconify.design/3/3.0.0/iconify.min.js"></script>
+
 
 <script>window.baseUrl = '{{url('/')}}';</script>
 <script src="{{asset('js/app.js')}}"></script>
