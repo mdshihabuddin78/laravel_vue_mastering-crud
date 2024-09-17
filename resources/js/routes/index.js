@@ -17,13 +17,13 @@ const route = [
     },
     {
         path : '/admin/product/category',
-        name : 'about',
+        name : 'categories',
         component : categoryComponent,
         meta:{pageTitle :'Category', dataUrl : 'api/categories'}
     },
     {
         path : '/admin/product/sub_category',
-        name : 'about',
+        name : 'sub_categories',
         component : subCategoryComponent,
         meta:{pageTitle :'Sub-Category', dataUrl : 'api/sub_categories'}
     },

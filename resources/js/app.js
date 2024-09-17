@@ -18,6 +18,17 @@ import Toast from 'vue-toastification';
 import 'vue-toastification/dist/index.css';
 Vue.use(Toast);
 
+import Vuex from 'vuex'
+Vue.use(Vuex);
+
+import {store as storeData} from "./store";
+const store = new Vuex.Store(storeData);
+
+import VeeValidate from 'vee-validate';
+Vue.use(VeeValidate,{
+    events : 'input',
+    fieldsBagName:'',
+});
 
 const router = new VueRouter({
     mode : 'history',
@@ -25,9 +36,12 @@ const router = new VueRouter({
     linkActiveClass : 'active'
 });
 
+import helper from './helper'
+helper(store, router);
+
 
 const vue = new Vue({
     el : '#app',
     components : {App},
-    router,axios
+    router,axios,store
 });

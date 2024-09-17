@@ -5,61 +5,61 @@
             <tr v-for="(data, index) in dataList">
                 <td>{{ index+1 }}</td>
                 <td>{{ data.name }}</td>
-                <td>Categry</td>
+                <td>{{data.category.name}}</td>
                 <td>
-                <td>
-                    <a @click="openEditModal(data)" class="btn btn-outline-warning">
-                        <i class="fas fa-edit"></i>
+                    <a @click="openEditModal(data, data.id)" class="btn btn-outline-warning">
+                        <i class="fa fa-pencil"></i>
                     </a>
-                    <a @click="Categorydelete(data.id)" class="btn btn-outline-danger">
-                        <i class="fas fa-trash"></i>
+                    <a @click="Categorydelete(data.id, index)" class="btn btn-outline-danger">
+                        <i class="fa fa-trash"></i>
                     </a>
                 </td>
             </tr>
         </data-table>
-        <form-modal :formData="formData" :categories="categories">
+        <form-modal @submit="submitForm(formData)">
             <div class="row">
                 <div class="col-md-12">
-                    <label>SubCategory Name</label>
-                    <input v-model="formData.name" class="form-control" type="text">
+                    <label>Name</label>
+                    <input v-validate="'required'" v-model="formData.name" name="name" class="form-control" type="text">
                 </div>
                 <div class="col-md-12">
                     <label>Category</label>
-                    <select v-model="formData.category_id" class="form-control">
+                    <select v-validate="'required'" v-model="formData.category_id" name="name" class="form-control" type="text">
                         <option value="">Select</option>
-                        <option v-for="category in categories" :key="category.id" :value="category.id">
-                            {{ category.name }}
-                        </option>
+                        <template v-for="item in requiredData.category">
+                            <option :value="item.id">{{ item.name }}</option>
+                        </template>
                     </select>
                 </div>
             </div>
         </form-modal>
-
-
     </div>
 </template>
 
 <script>
-    import PageTop from "../../components/pageTop";
-    import DataTable from "../../components/dataTable";
-    import FormModal from "../../components/formModal";
+    import PageTop from "../../components/pageTop.vue";
+    import DataTable from "../../components/dataTable.vue";
+    import axios from "axios";
+    import FormModal from "../../components/formModal.vue";
+
     export default {
         name: "subCategoryComponent",
         components: {FormModal, DataTable, PageTop},
         data(){
-            return{
-                tableHeading : ['SL','Name','Category','Action']
+            return {
+                tableHeading : ['Sl', 'Name','Category_Name','Action'],
             }
-        },
-        methods : {
-
         },
         mounted() {
             this.getDataList();
+            this.getRequiredData(['category']);
+            this.$set(this.formData, 'name', '');
         }
     }
 </script>
 
 <style scoped>
-
+    .datatable-top {
+        padding: 0 !important;
+    }
 </style>

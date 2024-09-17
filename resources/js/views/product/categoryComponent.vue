@@ -6,25 +6,20 @@
                 <td>{{ index+1 }}</td>
                 <td>{{ data.name }}</td>
                 <td>
-                    <a @click="openEditModal(data)" class="btn btn-outline-warning">
+                    <a v-if="permissions.includes('category_edit')" @click="openEditModal(data, data.id)" class="btn btn-outline-warning">
                         <i class="fas fa-edit"></i>
                     </a>
-
-<!--                    <a href="#!" class="btn btn-soft-primary btn-sm">-->
-<!--                        <iconify-icon icon="solar:pen-2-broken" class="align-middle fs-18"></iconify-icon>-->
-<!--                    </a>-->
-
-                    <a @click="Categorydelete(data.id)" class="btn btn-outline-danger">
-                        <i class="fas fa-trash"></i>
+                    <a v-if="('category_delete')" @click="Categorydelete(data.id, index)" class="btn btn-outline-danger">
+                        <i class="fa fa-trash"></i>
                     </a>
                 </td>
             </tr>
         </data-table>
-        <form-modal :form-data="formData">
+        <form-modal ref="myModal" @submit="submitForm(formData)">
             <div class="row">
                 <div class="col-md-12">
                     <label>Category Name</label>
-                    <input v-model="formData.name" class="form-control" type="text">
+                    <input v-validate="'required'" v-model="formData.name" name="name" class="form-control" type="text">
                 </div>
             </div>
         </form-modal>
@@ -46,6 +41,7 @@
         },
         mounted() {
             this.getDataList();
+            this.$set(this.formData, 'name', '');
         }
     }
 </script>

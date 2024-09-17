@@ -20,16 +20,34 @@
                     <li><a class="dropdown-item" href="#!">Settings</a></li>
                     <li><a class="dropdown-item" href="#!">Activity Log</a></li>
                     <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#!">Logout</a></li>
+                    <li>
+                        <a href="#" @click.prevent="logout"><i class="halflings-icon off"></i> Logout</a>
+                    </li>
+
                 </ul>
             </li>
         </ul>
     </nav>
 </template>
 <script>
+    import axios from 'axios';
+
     export default {
-        name: "topNavBar"
+        name: "topNavBar",
+
+        methods: {
+            logout() {
+                axios.post('/logout')
+                    .then(response => {
+                        window.location.href = '/login';
+                    })
+                    .catch(error => {
+                        console.error('Logout failed:', error);
+                    });
+            }
+        }
     }
+
 </script>
 
 <style scoped>

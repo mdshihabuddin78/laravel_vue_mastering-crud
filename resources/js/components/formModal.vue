@@ -1,23 +1,19 @@
 <template>
-    <div class="modal" :id="modalId">
+    <div class="modal fade" :id="modalId" tabindex="-1">
         <div class="modal-dialog">
-            <form @submit.prevent="submitForm(formData)">
+            <form @submit.prevent="submit">
                 <div class="modal-content">
-
-                    <!-- Modal Header -->
                     <div class="modal-header">
                         <h4 class="modal-title">Modal Heading</h4>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        <button type="button" class="btn-close" @click="closeModal"></button>
                     </div>
                     <div class="modal-body">
                         <slot></slot>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-<!--                        <button @click="submitForm" class="btn btn-primary">Save changes</button>-->
-                        <button type="submit" class="btn btn-primary">{{ isEditMode ? 'Update' : 'Save' }}</button>
+                        <button type="submit" class="btn btn-success">Submit</button>
+                        <button type="button" class="btn btn-danger" @click="closeModal">Close</button>
                     </div>
-
                 </div>
             </form>
         </div>
@@ -27,19 +23,24 @@
 <script>
     export default {
         name: "formModal",
-        props :{
-            modalId : {
-                type : [String],
-                default : 'myModal'
+        props: {
+            modalId: {
+                type: [String],
+                default: 'myModal',
             },
-            formData : {
-                type : [Object, Array],
-                default(){
-                    return {}
-                }
-            }
-        }
-    }
+        },
+        methods: {
+            // show() {
+            //     $(`#${this.modalId}`).modal('show');
+            // },
+            // closeModal() {
+            //     $(`#${this.modalId}`).modal('hide');
+            // },
+            submit() {
+                this.$emit('submit');
+            },
+        },
+    };
 </script>
 
 <style scoped>
