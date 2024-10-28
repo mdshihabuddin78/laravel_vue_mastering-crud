@@ -51,6 +51,20 @@ export  default {
             }
             return `${baseUrl}/${_this.$route.meta.dataUrl}`;
         },
+
+        publicImage : function (imageName) {
+            return `${window.publicPath}/${imageName}`;
+        },
+
+        storageImage : function (imageName) {
+            return `${window.uploadPath}/${imageName}`;
+        },
+
+        clickFileField : function (filedName) {
+            $(`#${filedName}`).click();
+        },
+
+
         openEditModal:function (data, id) {
             const _this = this;
             _this.$store.commit('updateId', id);
@@ -83,3 +97,18 @@ export  default {
     },
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

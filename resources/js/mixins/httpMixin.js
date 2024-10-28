@@ -86,6 +86,18 @@ export default {
                 }
             });
         },
+        uploadImage : function (event, dataObject, dataModel, callback = false) {
+            const _this = this;
+
+            var files = event.target.files[0];
+            var form = new FormData();
+
+            form.append('file', files);
+
+            _this.httpReq('post', _this.urlGenerate('api/upload'), form, {}, function (retData) {
+                _this.$set(dataObject, dataModel, retData.result.name);
+            })
+        },
 
         Categorydelete(id,index) {
             const _this = this;

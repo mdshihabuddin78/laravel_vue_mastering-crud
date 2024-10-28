@@ -3,18 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
-use App\Models\SubCategory;
+use App\Models\Product;
 use App\Supports\Helper;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class ProductController extends Controller
 {
     use Helper;
 
     public function __construct(){
-        $this->model = new Category();
+        $this->model = new Product();
     }
-
     public function index()
     {
         $data =  $this->model->get();
@@ -53,9 +52,9 @@ class CategoryController extends Controller
 
     public function update(Request $request, Category $category)
     {
-        if (!$this->can('category_edit')){
-            return $this->returnData(5000, null, 'You do not have permission to edit this category');
-        }
+//        if (!$this->can('category_edit')){
+//            return $this->returnData(5000, null, 'You do not have permission to edit this category');
+//        }
 
         try {
             $validator = $this->model->validate($request->all());
@@ -80,20 +79,20 @@ class CategoryController extends Controller
 
     public function destroy($dfg)
     {
-        if (!$this->can('category_delete')){
-            return $this->returnData(5000, null, 'You do not have permission to edit this category');
-        }
+//        if (!$this->can('category_delete')){
+//            return $this->returnData(5000, null, 'You do not have permission to edit this category');
+//        }
 
         try {
-            $data = $this->model->where('id',$dfg)->first();
-            if ($data){
+            $data = $this->model->where('id', $dfg)->first();
+            if ($data) {
                 $data->delete();
 
                 return $this->returnData(2000, null, 'Category deleted successfully');
             }
             return $this->returnData(3000, null, 'Category not found');
 
-        }catch (\Exception $exception){
+        } catch (\Exception $exception) {
             return $this->returnData(5000, $exception->getMessage(), 'Something Wrong');
         }
     }

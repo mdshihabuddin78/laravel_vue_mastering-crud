@@ -1,9 +1,5 @@
 <?php
 
-namespace Database\Seeders;
-
-use App\Models\Role;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class RoleTableSeeder extends Seeder
@@ -13,11 +9,11 @@ class RoleTableSeeder extends Seeder
      */
     public function run(): void
     {
-        Role::truncate();
-
-        $role = new Role();
+        \App\Models\Role::truncate();
+        $role = new \App\Models\Role();
         $role->name = 'Admin';
         $role->save();
     }
 
 }
+

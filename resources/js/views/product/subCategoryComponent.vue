@@ -5,7 +5,8 @@
             <tr v-for="(data, index) in dataList">
                 <td>{{ index+1 }}</td>
                 <td>{{ data.name }}</td>
-                <td>{{data.category.name}}</td>
+                <td>{{ data.category ? data.category.name : 'N/A' }}</td>
+
                 <td>
                     <a @click="openEditModal(data, data.id)" class="btn btn-outline-warning">
                         <i class="fa fa-pencil"></i>

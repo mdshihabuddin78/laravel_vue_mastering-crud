@@ -30,8 +30,10 @@
 
 <script src="https://code.iconify.design/3/3.0.0/iconify.min.js"></script>
 
-
 <script>window.baseUrl = '{{url('/')}}';</script>
+
+<script>window.publicPath = '{{env('PUBLIC_PATH')}}';</script>
+<script>window.uploadPath = '{{env('UPLOAD_PATH')}}';</script>
 <script src="{{asset('js/app.js')}}"></script>
 </body>
 </html>

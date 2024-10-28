@@ -42,22 +42,44 @@ class ModuleTableSeeder extends Seeder
                         'submenus' => [],
                     ],
                     [
-                    'name'=>'SubCategory',
-                    'key' =>'sub_category',
-                    'link'=> '/admin/product/sub_category',
-                    'permission'=>['add','view','edit','delete'],
+                        'name'=>'SubCategory',
+                        'key' =>'sub_category',
+                        'link'=> '/admin/product/sub_category',
+                        'permission'=>['add','view','edit','delete'],
                     ],
                     [
-                    'name'=>'Product',
-                    'key' =>'product',
-                    'link'=> '/admin/product/product',
-                    'permission'=>['add','view','edit','delete'],
+                        'name'=>'Product',
+                        'key' =>'product',
+                        'link'=> '/admin/product/product',
+                        'permission'=>['add','view','edit','delete'],
+                    ],
+                ]
+            ],
+            [
+                'name' =>'Customer',
+                'key' => 'customer',
+                'link' => '#',
+                'permission'=>['add','view','edit','delete'],
+                'submenus'=>[
+                    [
+                        'name'=>'Customer',
+                        'key' =>'customer',
+                        'link'=> '/admin/Customer/Customer',
+                        'permission'=>['add','view','edit','delete'],
+                        'submenus' => [],
+                    ],
+                    [
+                        'name'=>'Order',
+                        'key' =>'order',
+                        'link'=> '/admin/Customer/Order',
+                        'permission'=>['add','view','edit','delete'],
+                        'submenus' => [],
                     ],
                 ]
             ]
         ];
         $role=new Role();
-        $role->name ='Admin';
+        $role-> name ='Admin';
         $role->save();
 
         User::where('id',1)->update([

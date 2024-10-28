@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Customer;
 use App\Models\Module;
+use App\Models\Product;
 use App\Models\SubCategory;
 use App\Models\User;
 use App\Supports\Helper;
@@ -21,6 +23,12 @@ class SupportController extends Controller
         }
         if (in_array('sub_category', $array)){
             $data['sub_category'] = SubCategory::get();
+        }
+        if (in_array('customer', $array)){
+            $data['customer'] = Customer::get();
+        }
+        if (in_array('product', $array)){
+            $data['product'] = Product::get();
         }
 
         return $this->returnData(2000, $data);

@@ -9,7 +9,7 @@
                     <a v-if="permissions.includes('category_edit')" @click="openEditModal(data, data.id)" class="btn btn-outline-warning">
                         <i class="fas fa-edit"></i>
                     </a>
-                    <a v-if="('category_delete')" @click="Categorydelete(data.id, index)" class="btn btn-outline-danger">
+                    <a v-if="can('category_delete')" @click="Categorydelete(data.id, index)" class="btn btn-outline-danger">
                         <i class="fa fa-trash"></i>
                     </a>
                 </td>
@@ -42,7 +42,12 @@
         mounted() {
             this.getDataList();
             this.$set(this.formData, 'name', '');
-        }
+        },
+        methods: {
+            can(permission) {
+                return this.permissions.includes(permission);
+            },
+        },
     }
 </script>
 

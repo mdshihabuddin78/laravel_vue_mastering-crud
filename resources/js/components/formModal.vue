@@ -30,12 +30,12 @@
             },
         },
         methods: {
-            // show() {
-            //     $(`#${this.modalId}`).modal('show');
-            // },
-            // closeModal() {
-            //     $(`#${this.modalId}`).modal('hide');
-            // },
+            show() {
+                $(`#${this.modalId}`).modal('show');
+            },
+            closeModal() {
+                $(`#${this.modalId}`).modal('hide');
+            },
             submit() {
                 this.$emit('submit');
             },
